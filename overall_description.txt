@@ -1,0 +1,50 @@
+Ant Colony Optimization Algorithm will be used to find shortest path between two points in graph with non-directional edges.
+
+ACO goes for given amount of iterations.
+
+At the initialisation stage for each edge: edge.depositedPheromone = 1
+
+In each iteration Ant is created. Ant creates path, Ant tries to reach end_vertex from start_vertex.
+
+In each step of path creation Ant is choosing one edge from all currently possible edges.
+Probability of choosing edge e is equal:
+
+	(edge_desirability * desirability_influence * edge_pheromone * pheromone_influence) / 
+	(sum_all_possible_edges_desirability * desirability_influence * sum_all_possible_edges_pheromone * pheromone_influence)
+
+Ant calculates given edge desirability as follows:
+	1 / edge.weight
+
+Ant can't traverse one edge twice, so that it can't go back.
+
+If Ant reaches end_vertex it returns created path and deposits pheromone on this path.
+	for edge in path:
+		edge.deposited_pheromone += (1 / path.cost)
+
+After each succesful Ant travel pheromone is evaporating on all edges:
+	for edge in edges:
+		edge.deposited_pheromone *= (1 - evaporation_coefficent)
+
+ACO has certain parameters:
+	- pheromone influence in choosing edges by Ant
+	- edge's desirability influence in choosing edges by Ant
+	- pheromone evaporation coefficent
+---
+Graph has vertexes and edges.
+
+You can add/delete vertex or edge to/from graph.
+If vertex is deleted, all edges coming from this vertex should be deleted.
+---
+Vertex has id.
+
+From vertex are coming edges to other vertexes.
+
+You can add/remove edge to/from vertexes.
+---
+Edge has two vertexes from which it comes from.
+Edge cannot exist without two vertexes.
+If one end of edge is removed, then edge should be removed too.
+
+Edge has weight and certain amount of pheromone deposited on this edge.
+
+Edge can be traversible or not traversible.
