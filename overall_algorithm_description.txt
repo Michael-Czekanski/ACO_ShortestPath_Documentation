@@ -9,8 +9,12 @@ In each iteration Ant is created. Ant creates path, Ant tries to reach end_verte
 In each step of path creation Ant is choosing one edge from all currently possible edges.
 Probability of choosing edge e is equal:
 
-	(edge_desirability * desirability_influence * edge_pheromone * pheromone_influence) / 
-	(sum_all_possible_edges_desirability * desirability_influence * sum_all_possible_edges_pheromone * pheromone_influence)
+	(edge_desirability ^ desirability_influence * edge_pheromone ^ pheromone_influence) / (sum)
+	
+	where sum equals:
+		sum = 0
+		for edge in possible_edges:
+			sum += edge_desirability ^ desirability_influence * edge_pheromone ^ pheromone_influence
 
 Ant calculates given edge desirability as follows:
 	1 / edge.weight
