@@ -2,7 +2,7 @@ Ant Colony Optimization Algorithm will be used to find shortest path between two
 
 ACO goes for given amount of iterations.
 
-At the initialisation stage for each edge: edge.depositedPheromone = 1
+At the initialization stage for each edge: edge.depositedPheromone = 1
 
 In each iteration Ant is created. Ant creates path, Ant tries to reach end_vertex from start_vertex.
 
