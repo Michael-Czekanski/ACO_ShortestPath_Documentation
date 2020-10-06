@@ -18,11 +18,11 @@ There will be subdir:
 
 ## Launching command:
 ```
-python ACOShortestPath_Run.py input_filename vertex_start vertex_end pheromone_influence edge_desirability evaporation_coefficent iters_num runs_num print_all_paths[y/n]
+python ACOShortestPath_Run.py input_filename vertex_start vertex_end pheromone_influence desirability_influence evaporation_coefficent iters_num runs_num print_all_paths[y/n]
 ```
 ---
 
-# Input files format
+# Input files
 
 Input graph files should look like this:
 
@@ -36,7 +36,7 @@ y. vertex_start vertex_end weight
 ```
 ---
 
-# Output files format
+# Output files
 
 ### Output filenames
 
@@ -46,8 +46,35 @@ Output files will be named: `inputFilename_launchTimeAndDate_parameters`
 - vertex_start
 - vertex_end
 - pheromone_influence
-- edge_desirability
+- desirability_influence
 - evaporation_coefficent
 - iters_num
 
 ### Output files
+
+```
+------------------------------------
+Run:          run_number
+Input:        inputFilename
+Parameters:
+    - vertex_start =            sth
+    - vertex_end =              sth
+    - pheromone_influence =     sth
+    - desirability_influence =  sth
+    - evaporation_coefficent =  sth
+    - iters_num  =              sth
+Start:        timeAndDate
+End:          timeAndDate
+Time running: time
+
+Shortest path:
+weight =      pathWeight
+v1 - v2 - ... - vn
+
+All paths:[optional]
+1. v1 - v2 ...
+2. v1 - v2 ...
+...
+k. v1 - v2 ...
+------------------------------------
+```
